@@ -64,4 +64,6 @@ proc tinyToNano*(tiny: Stream): StringStream =
 
 when isMainModule:
     var f = open("build/mappings.nylonnano", fmWrite)
-    f.write(tinyToNano(getYarnUnmergedTiny2(getLatestYarn())).data)
+    let latest_yarn = getLatestYarn()
+    echo latest_yarn
+    f.write(tinyToNano(getYarnUnmergedTiny2(latest_yarn)).data)
