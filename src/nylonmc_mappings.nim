@@ -51,14 +51,10 @@ proc tinyToNano*(tiny: Stream): StringStream =
                         currentMethods.add((strings[4].wrap, strings[3].wrap))
                     of "f":
                         currentFields.add((strings[4].wrap, strings[3].wrap))
-                    of "", "c":
-                        discard # Parameters And JavaDocs
                     else:
-                        echo "Unexpected Class Thing Char In Tiny File"
-                        quit(1)
+                        discard
             else:
-                echo "Unexpected Line Staring Char In Tiny File"
-                quit(1)
+                discard
     result.pack(classes)
     result.setPosition(0)
 
